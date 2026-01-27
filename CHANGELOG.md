@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/KazuProg/youtube-vj/compare/v1.0.0...v1.1.0) (2026-01-27)
+
+
+### Features
+
+* **dev:** add setup command to ensure generated files before dev/preview ([5f32fac](https://github.com/KazuProg/youtube-vj/commit/5f32faccf93a321f088bb911029ea876f14be3bd))
+* unmute on load ([8a8d038](https://github.com/KazuProg/youtube-vj/commit/8a8d03848bf742f21ebb107fe0e1d3a233f90d3b))
+
 ## 1.0.0 (2026-01-25)
 
 
