@@ -247,39 +247,43 @@ const _midiScriptTemplate = [
   {
     name: "Ch2_Load",
     code: () => {
-      if (data2 === 0x7f) {
-        ch[1].setVideo(prepareVideoId);
+      if (value === 0x7f) {
+        ch[1].loadVideo(mixer.getPreparedVideo());
       }
     },
   },
   {
     name: "Ch2_Play",
     code: () => {
-      if (data2 === 0x7f) {
-        ch[1].play();
+      if (value === 0x7f) {
+        ch[1].playVideo();
       }
     },
   },
   {
     name: "Ch2_Pause",
     code: () => {
-      if (data2 === 0x7f) {
-        ch[1].pause();
+      if (value === 0x7f) {
+        ch[1].pauseVideo();
       }
     },
   },
   {
     name: "Ch2_Play/Pause",
     code: () => {
-      if (data2 === 0x7f) {
-        ch[1].togglePlayPause();
+      if (value === 0x7f) {
+        if (ch[1].isPlaying()) {
+          ch[1].pauseVideo();
+        } else {
+          ch[1].playVideo();
+        }
       }
     },
   },
   {
     name: "Ch2_Mute",
     code: () => {
-      if (data2 === 0x7f) {
+      if (value === 0x7f) {
         ch[1].mute();
       }
     },
@@ -287,16 +291,20 @@ const _midiScriptTemplate = [
   {
     name: "Ch2_Unmute",
     code: () => {
-      if (data2 === 0x7f) {
-        ch[1].unmute();
+      if (value === 0x7f) {
+        ch[1].unMute();
       }
     },
   },
   {
     name: "Ch2_Mute/Unmute",
     code: () => {
-      if (data2 === 0x7f) {
-        ch[1].toggleMuteUnmute();
+      if (value === 0x7f) {
+        if (ch[1].isMuted()) {
+          ch[1].unMute();
+        } else {
+          ch[1].mute();
+        }
       }
     },
   },
@@ -318,14 +326,14 @@ const _midiScriptTemplate = [
       } else {
         speed = val * 2;
       }
-      ch[1].setSpeed(speed);
+      ch[1].setPlaybackRate(speed);
     },
   },
   {
     name: "Ch2_Speed_x1.00",
     code: () => {
       if (data2 === 0x7f) {
-        ch[1].setSpeed(1.0);
+        ch[1].setPlaybackRate(1.0);
       }
     },
   },
